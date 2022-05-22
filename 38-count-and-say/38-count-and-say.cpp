@@ -22,7 +22,7 @@ public:
               count++;
               i++;
           }
-                    temp+=count+'0';
+                    temp+=to_string(count);
                     temp+=ans[i];
         }
                 ans=temp;
