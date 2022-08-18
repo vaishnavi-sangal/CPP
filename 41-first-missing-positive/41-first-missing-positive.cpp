@@ -4,7 +4,7 @@ public:
 
 //sort(nums.begin(),nums.end());  // 0 0 1 1 1 2 2 3 4 
         int c=0;
-        set<int>s;
+        set<int>s;  
         for(int i=0;i<nums.size();i++)
         {
             s.insert(nums[i]);
@@ -25,13 +25,12 @@ public:
         }
         int i=1;
    
-        for(i=1;i<1000000000000 && c<v.size();i++)
+        for(i=1;i<50000000 && c<v.size();i++)
         {
          
             if(i!= v[c++])
             {
-             
-                return i;
+             return i;
                 break;
                 
             }
