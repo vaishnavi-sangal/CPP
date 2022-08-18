@@ -35,6 +35,6 @@ public:
                 return count;
             }
         }
-        return count;
+        return -1;
     }
 };
