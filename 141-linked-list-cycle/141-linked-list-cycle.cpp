@@ -20,8 +20,7 @@ public:
                 return true;
             
         }
-     if(temp==NULL)
-            return false;
+   
       
         
         return false;
