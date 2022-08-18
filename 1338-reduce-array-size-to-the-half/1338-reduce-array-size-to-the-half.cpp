@@ -7,7 +7,7 @@ public:
         {
             mp[arr[i]]++;
         }
-        multimap<int,int>m;
+        multimap<int,int,greater<int>>m;
         for(auto c:mp)
         {
             m.insert({c.second,c.first});
@@ -24,7 +24,7 @@ public:
         }
         int ans=n;
         int count=0;
-        for(auto  i=m.rbegin();i!=m.rend();i++)
+        for(auto  i=m.begin();i!=m.end();i++)
         {
             ans-=i->first;
             cout<<ans<<" ";
