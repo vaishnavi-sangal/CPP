@@ -20,24 +20,36 @@ public:
 
 class Solution{
 public:
-   ListNode *moveToFront(ListNode *head){
-    if(head==NULL || head->next==NULL)   
-       return head;
-       
-   ListNode* prev = head;
-   ListNode* curr  = head->next;
-   while(curr->next !=NULL){
-       prev=prev->next;
-       curr=curr->next;
-   }
-   
-   prev->next = NULL;
-   curr->next = head;
-   head = curr;
-   
+
+    ListNode *moveToFront(ListNode *head){        
+
+    if(head==NULL||head->next==NULL){     
+
    return head;
-       
-   }
+
+    }
+
+        ListNode* last=head;
+
+        ListNode* sec=NULL;
+
+        while(last->next!=NULL){
+
+             sec=last;
+
+             last=last->next;
+
+        }
+
+       sec->next=NULL;
+
+       last->next=head;
+
+       head=last;
+
+    }
+
+
 };
 
 //{ Driver Code Starts.
