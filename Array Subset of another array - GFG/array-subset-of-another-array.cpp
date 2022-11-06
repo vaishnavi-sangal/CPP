@@ -1,4 +1,4 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -24,45 +24,30 @@ int main() {
     }
     return 0;
 }
+
 // } Driver Code Ends
 
 
 string isSubset(int a1[], int a2[], int n, int m) {
-    
-    int flag=0;
-    string a="Yes";
-string b="No";
-for(int i=0;i<m;i++)
-{
-    for(int j=0;j<n;j++)
+    sort(a1,a1+n); // 2 5 10 19 23
+    sort(a2,a2+m); 
+    // 3 5 19
+    int j=0;
+    for(int i=0;i<n;i++)
     {
-        if(a2[i]==a1[j])
+        if(a2[j]==a1[i])
         {
-            flag=1;
-            break;
+             if(j==m-1)
+            {
+                return "Yes";
+            }
+            j++;
+           
         }
-        else
+        else if(a1[i]>a2[j])
         {
-            flag=0;
+            return "No";
         }
-        
     }
-    
-    if(flag==0)
-    {
-    return b;
-    break;
-    }
-}
-
-if(flag==1)
-{
-    return a;
-    
-}
-    
-    else
-    {
-        return b;
-    }
+    return "No";
 }
