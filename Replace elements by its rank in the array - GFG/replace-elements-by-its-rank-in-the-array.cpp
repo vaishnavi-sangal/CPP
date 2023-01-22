@@ -10,43 +10,29 @@ using namespace std;
 class Solution{
 public:
 
-   vector<int> replaceWithRank(vector<int> &arr, int N){
+   vector<int> replaceWithRank(vector<int> &arr, int n){
+       vector<int>ans,v;
+       ans=arr;
+       int k=1;
+       unordered_map<int,int>mp;
+       sort(arr.begin(),arr.end());
+       for(int i=0;i<n;i++)
+       {
+           if(mp[arr[i]]<1)
+           {
+               mp[arr[i]]=k++;
+           }
+       }
+       for(int i=0;i<n;i++)
+       {
+           v.push_back(mp[ans[i]]);
+       }
+       return v;
 
-      priority_queue<int,vector<int>,greater<int>>pq;
+      
 
-      int ind=1;
-
-     for(auto i=0;i<N;i++){
-
-       pq.push(arr[i]);
-
-   }
-
- 
-
-   unordered_map<int,int>mp;
-
-    for(auto i=0;i<N;i++){
-
-        if(mp.find(pq.top())==mp.end()){
-
-            mp[pq.top()]=ind++;
-
-        }
-
-        pq.pop();
-
-    }
 
    
-
-   for(auto i=0;i<N;i++){
-
-       arr[i]=mp[arr[i]];
-
-   }
-
-   return arr;
 
     }
 
