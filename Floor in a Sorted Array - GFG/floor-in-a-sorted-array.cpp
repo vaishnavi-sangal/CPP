@@ -10,10 +10,16 @@ class Solution{
     // n: size of vector
     // x: element whose floor is to find
     int findFloor(vector<long long> v, long long n, long long x){
-         int idx = lower_bound(v.begin(), v.end(), x) - v.begin();
-        if(x>v[n-1]) return n-1;
-        if(idx==0 && v[idx]!=x) return -1;
-        return idx;
+        if(binary_search(v.begin(),v.end(),x))
+        {
+            return lower_bound(v.begin(),v.end(),x)-v.begin();
+        }
+        int i=lower_bound(v.begin(),v.end(),x)-v.begin()-1;
+        if(i<0)
+        {
+            return -1;
+        }
+       return i;
         
         // Your code here
         
