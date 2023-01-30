@@ -13,47 +13,45 @@ class Solution{
     vector<vector<int> > fourSum(vector<int> &arr, int k) {
         int n=arr.size();
         sort(arr.begin(),arr.end());
-        vector<vector<int>>array;
-        set<vector<int>>gl;
-       // vector<int>sh;
-       // int start=0,start1=1,end=n-1,end1=end-1;
-      //  int sum=0;
-      //  int sum=arr[start]+arr[start1]+arr[end]+arr[end1];
-      for(int i=0;i<=(n-3);i++){
-          for(int j=i+1;j<=(n-2);j++){
-      int sum=arr[i]+arr[j];
-      int start1=j+1,end1=n-1;
-      while(start1<end1)
-      {
-         // sum=sum+arr[start1]+arr[end1];
-      
-          if(sum+arr[start1]+arr[end1]<k)
-          {
-              start1++;
-          }
-          else if(sum+arr[start1]+arr[end1]>k)
-          {
-              end1--;
-          }
-          else
-          {
-             gl.insert({arr[i],arr[j],arr[start1],arr[end1]});
-             start1++;
-             end1--;
-              
-          }
-      }
-          }
-        //  sum=arr[start]+arr[start1]+arr[end]+arr[end1];
-      }
-   //   array.push_back(sh);
-        // Your code goes here
-        for(auto it:gl)
+        vector<vector<int>>v;
+        for(int i=0;i<n-3;i++)
         {
-            array.push_back(it);
+            for(int j=i+1;j<n-2;j++)
+            {
+                int start=j+1;
+                int end=n-1;
+                while(start<end)
+                {
+                    if(arr[i]+arr[j]+arr[start]+arr[end]==k)
+                    {
+                        v.push_back({arr[i],arr[j],arr[start],arr[end]});
+                        start++;
+                        end--;
+                    }
+                    else if((arr[i]+arr[j]+arr[start]+arr[end])>k)
+                    {
+                        end--;
+                    }
+                    else
+                    {
+                        start++;
+                    }
+                }
+                
+            }
         }
-    
-    return array;
+        set<vector<int>>st;
+        for(auto it:v)
+        {
+            st.insert(it);
+        }
+        vector<vector<int>>ans;
+        for(auto it:st)
+        {
+            ans.push_back(it);
+        }
+        return ans;
+       
     }
 };
 
