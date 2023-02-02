@@ -8,7 +8,7 @@ class Solution
 {
     public:
     //Function to find the next greater element for each element of the array.
-    vector<long long> nextLargerElement(vector<long long> arr, int n){
+  /*  vector<long long> nextLargerElement(vector<long long> arr, int n){
           stack<long long> st;
         vector<long long> ans;
         ans.push_back(-1);
@@ -39,6 +39,48 @@ class Solution
         
         return ans;
     }
+};
+*/
+
+
+
+vector<long long> nextLargerElement(vector<long long> arr, int n){
+        stack<int>s;
+        vector<long long>v(n);
+        int i=0;
+        s.push(i);
+       // cout<<s.top();
+        for( i=1;i<n;i++)
+        {
+            
+            if(arr[i]<=arr[s.top()] && s.top()<n)
+              {  s.push(i);
+              //  cout<<s.top();
+                  
+              }
+            else
+            {
+                while(!s.empty() && arr[s.top()]<arr[i])
+                   {
+                       v[s.top()]=arr[i];
+                       s.pop();
+                   }
+                    s.push(i);
+                    
+            }
+        }
+     //   v[n-1]=-1;
+   while(!s.empty())
+       {
+          v[s.top()]=-1; 
+          s.pop();
+       }
+        return v;
+       
+    }
+    
+
+    
 };
 
 //{ Driver Code Starts.
