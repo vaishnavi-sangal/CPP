@@ -31,10 +31,10 @@ long long solve(int i,int j,int m,int n)
     if((j<n && (i+1)>=m))
     {
         solve(i,j+1,m,n);
-        return 1;
+      return 1;
     }
    
-    return c;
+  //  return c;
 }
 long long  numberOfPaths(int m, int n)
 {
