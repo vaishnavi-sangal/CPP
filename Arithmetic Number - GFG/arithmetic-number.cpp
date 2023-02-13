@@ -1,40 +1,26 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 // Initial Template for C++
 
 #include <bits/stdc++.h>
 using namespace std;
 
- // } Driver Code Ends
+// } Driver Code Ends
 // User function Template for C++
 
 class Solution{
 public:
-    int inSequence(int a, int b, int c){
-        if(c==0)
-        {
-            if(a==b)
-            return 1;
-            return 0;
-        }
-       else if(c>0)
-       {
-           if(b<a)return 0;
-           if((b-a)%c==0)
-           return 1;
-           return 0;
-       }
-       else
-       {
-           if(b>a)return 0;
-           if((b-a)%c==0)return 1;
-           return 0;
-       }
-       return 0;
-        // code here
+  int inSequence(int A, int B, int C){
+        if(C == 0)
+            return A == B;
+        
+       if((B - A) / C < 0) return 0;
+        
+        int rem = (B - A) % C;
+        return rem == 0;
     }
 };
 
-// { Driver Code Starts.
+//{ Driver Code Starts.
 
 int main(){
     int t;
@@ -47,4 +33,5 @@ int main(){
         cout<<ob.inSequence(A, B, C)<<endl;
     }
     return 0;
-}  // } Driver Code Ends
+}
+// } Driver Code Ends
