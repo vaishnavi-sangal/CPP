@@ -30,7 +30,12 @@ void insertatbottom(stack<int>&st,int k)
         int num=st.top();
         st.pop();
         Reverse(st);
-        insertatbottom(st,num);
+      /*  while(!st.empty())
+        {
+            cout<<st.top()<<" ";
+            st.pop();
+        }*/
+       insertatbottom(st,num);
         
     }
 };
