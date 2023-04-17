@@ -26,11 +26,12 @@ struct Job
 class Solution 
 {
     public:
+   
     //Function to find the maximum profit and the number of jobs done.
     vector<int> JobScheduling(Job arr[], int n) 
     { 
-        // your code here
-         sort(arr,arr+n,[](Job &a,Job&b)
+        //vector<int>ans;
+        sort(arr,arr+n,[](Job &a,Job&b)
         {
             if(a.dead==b.dead)
         {
@@ -64,6 +65,7 @@ class Solution
             pq.pop();
         }
         return {nj,ans};
+        // your code here
     } 
 };
 
