@@ -11,9 +11,8 @@ using namespace std;
 class Solution{
 public:
     int remove_duplicate(int arr[],int n){
-        
-       int ans=1,j=0;
-       for(int i=0;i<n;i++)
+        int j=0;
+          for(int i=0;i<n;i++)
        {
            if(arr[i]==arr[i+1])
            {
@@ -26,6 +25,7 @@ public:
            }
        }
        return j;
+        // code here
     }
 };
 
