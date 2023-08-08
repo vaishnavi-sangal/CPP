@@ -4,33 +4,21 @@
 
 class Solution {
 public:
-    bool isPossible(vector<string> &arr, int m){
-        for(int i = 1; i < arr.size(); i++){
-            string &temp = arr[i];
-            int j = 0;
-            while(j < m){
-                if(temp[j] != arr[0][j]) return false;
-                j++;
+
+    string longestCommonPrefix(vector<string>& arr) {
+        sort(arr.begin(),arr.end());
+        string s1=arr[0];
+        int N=arr.size();
+        string s2 = arr[N-1];
+        // note it will sort in alphabetical order not according to the size of the string........
+        string s = "";
+        for(int i=0; i<s1.size();i++){
+            if(s1[i]==s2[i]){
+                s.push_back(s1[i]);
             }
+            else break;
         }
-        return true;
-    }
-    string longestCommonPrefix(vector<string>& strs) {
-        int l = 0, r = strs[0].size(), ans = 0;
-        for(auto &s: strs){
-            int len = s.size();
-            r = min(r, len);
-        }
-        
-        while(l <= r){
-            int m = (l+r)>>1;
-            if(isPossible(strs, m)){
-                ans = m;
-                l = m+1;
-            }
-            else
-                r = m-1;
-        }
-        return strs[0].substr(0, ans);
+        if(s.size()!=0) return s;
+        else return "";
     }
 };
