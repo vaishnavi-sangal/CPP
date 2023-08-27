@@ -11,29 +11,34 @@ public:
     ListNode *detectCycle(ListNode *head) {
         if (head == NULL)
             return NULL;
+        if(head->next==NULL)
+            return NULL;
             
-        ListNode *slow = head;
-        ListNode *fast = head;
+ListNode* ans=new ListNode(-1);
+        ListNode* slow=head;
+        ListNode* fast=head;
         
-        for (; ;)
-        {
-            if (fast == NULL || fast->next == NULL)
-                return NULL;
-                
-            slow = slow->next;
-            fast = fast->next->next;
-            
-            if (slow == fast)
-                break;
+      do  {
+          if(slow->next!=NULL)
+            slow=slow->next;
+          if(fast->next == NULL ||  fast->next->next==NULL)
+              return NULL;
+            fast=fast->next->next;
+          
+          
         }
+                while(slow!=fast);
         
-        slow = head;
-        while (slow != fast)
+  
+        
+        cout<<slow->val<<fast->val;
+        slow=head;
+        while(slow!=fast)
         {
-            slow = slow->next;
-            fast = fast->next;
+            slow=slow->next;
+            fast=fast->next;
         }
-            
+  
         return slow;
     }
 };
