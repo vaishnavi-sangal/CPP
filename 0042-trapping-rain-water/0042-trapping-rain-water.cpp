@@ -8,11 +8,11 @@ public:
         ngr[n-1] = height[n-1];
 
         for(int i=1; i<n; i++){
-            ngl[i] = max(height[i], ngl[i-1])+ 0ll;
+            ngl[i] = max(height[i], ngl[i-1]);
         }
 
         for(int i=n-2; i>=0; i--){
-            ngr[i] = max(height[i], ngr[i+1]) + 0ll;
+            ngr[i] = max(height[i], ngr[i+1]) ;
         }
         int ans =0ll; 
         for(int i=0; i<n; i++){
