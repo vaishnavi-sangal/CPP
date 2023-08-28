@@ -14,7 +14,7 @@ public:
         for(int i=n-2; i>=0; i--){
             ngr[i] = max(height[i], ngr[i+1]) ;
         }
-        int ans =0ll; 
+        int ans =0; 
         for(int i=0; i<n; i++){
             ans+= min(ngl[i],ngr[i]) - height[i];
         }
