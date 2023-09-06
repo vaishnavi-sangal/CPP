@@ -1,29 +1,41 @@
 class Solution {
 public:
     vector<int> findAnagrams(string s, string p) {
+        vector<int>ans;
+        int n=s.size();
+        
+        int m=p.size();
+        unordered_map<char,int>mp,mp1;
+        for(int i=0;i<m;i++)
+        {
+            mp[p[i]]++;
+}
+      int i=0,j=0;
+        while(j<n)
+        {
+                            mp1[s[j]]++;
 
-  int n=s.size(),k=p.size();
-        vector<int> freq(26,0);
-        vector<int> v;
-        for(int i=0;i<k;++i){
-            freq[p[i]-'a']++;
-        }
-        vector<int> vec(26,0);
-        int i=0,j=0;
-        while(j<n){
-            vec[s[j]-'a']++;
-            if(j-i+1<k){
+            if((j-i+1)<m)
+            {
+               
                 j++;
-            }
-            else if(j-i+1==k){
-                if(vec==freq){
-                    v.push_back(i);
+}
+        else    if((j-i+1)==m)
+        {
+            // cout<<s.substr(i,j+1)+" ";
+            
+                if(mp1==mp)
+                {
+                    ans.push_back(i);
                 }
-                vec[s[i]-'a']--;
+            
+                mp1[s[i]]--;
+                if(mp1[s[i]]==0)
+                    mp1.erase(s[i]);
                 i++;
                 j++;
-            }
+           }
         }
-        return v;
+        return ans;
     }
 };
