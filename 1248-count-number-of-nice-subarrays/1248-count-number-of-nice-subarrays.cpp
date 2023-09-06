@@ -12,13 +12,12 @@ public:
             else
                 v[i]=0;
         }
-        
+        m[0]=1;
         int sum=0,i,cnt=0;
         for(i=0;i<v.size();++i)
         {
             sum+=v[i];
-            if(sum==k)
-                cnt++;
+            
             
             if(m.find(sum-k)!=m.end())
                 cnt+=m[sum-k];
